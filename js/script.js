@@ -1,7 +1,7 @@
 function sendQuestion() {
     const question = document.getElementById('questionInput').value;
 
-    fetch('/questions', {
+    fetch('http://localhost:3000/questions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ function toggleComments() {
 function addComment() {
     const comment = document.getElementById('commentInput').value;
 
-    fetch('/comments', {
+    fetch('http://localhost:3000/comments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

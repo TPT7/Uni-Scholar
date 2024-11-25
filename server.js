@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
@@ -14,6 +15,7 @@ const pool = new Pool({
 });
 
 app.use(bodyParser.json());
+app.use(cors()); 
 
 app.post('/questions', async (req, res) => {
     const { question } = req.body;

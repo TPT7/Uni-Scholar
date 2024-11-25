@@ -118,25 +118,4 @@ function register() {
     });
 }
 
-//history
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:3000/questions')
-        .then(response => response.json())
-        .then(data => {
-            const questionsContainer = document.getElementById('questionsContainer');
-            data.forEach(question => {
-                const questionElement = document.createElement('div');
-                questionElement.className = 'question';
-                questionElement.innerHTML = `
-                    <h3>${question.question}</h3>
-                    <p>${question.answer}</p>
-                    <hr>
-                `;
-                questionsContainer.appendChild(questionElement);
-            });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
 

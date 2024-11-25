@@ -118,4 +118,33 @@ function register() {
     });
 }
 
+//history
+// Fetch and display questions
+fetch('http://localhost:3000/questions')
+    .then(response => response.json())
+    .then(data => {
+        const questionsList = document.getElementById('questionsList');
+        data.forEach(question => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.textContent = question.question;
+            questionsList.appendChild(questionDiv);
+        });
+    })
+    .catch(error => console.error('Error:', error));
 
+// Fetch and display comments
+fetch('http://localhost:3000/comments')
+    .then(response => response.json())
+    .then(data => {
+        const commentsList = document.getElementById('commentsList');
+        data.forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.textContent = comment.comment;
+            commentsList.appendChild(commentDiv);
+        });
+    })
+    .catch(error => console.error('Error:', error));
+
+      

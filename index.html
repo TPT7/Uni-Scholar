@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
     <script src="js/server.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="navbar">
@@ -29,8 +30,8 @@
             <h2>Questions</h2>
             <textarea id="questionInput" rows="4" placeholder="Type your question here..."></textarea>
             <div class="buttons">
-                <button class="icon-button" onclick="sendQuestion()">📩</button>
-                <button class="icon-button" onclick="toggleComments()">💬</button>
+                <button class="icon-button" onclick="sendQuestion()"><i class="fas fa-paper-plane"></i></button>
+                <button class="icon-button" onclick="toggleComments()"><i class="fas fa-comments"></i></button>
             </div>
             <div class="comment-section" id="commentSection">
                 <h3>Comments</h3>

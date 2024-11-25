@@ -81,6 +81,29 @@ app.post('/register', async (req, res) => {
     }
 });
 
+//history
+// Route for retrieving questions
+app.get('/questions', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM questions');
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
+// Route for retrieving comments
+app.get('/comments', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM comments');
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

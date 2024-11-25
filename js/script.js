@@ -90,3 +90,31 @@ function login() {
         alert('An error occurred during login. Please try again.');
     });
 }
+
+//signup
+function register() {
+    const username = document.getElementById('usernames').value;
+    const password = document.getElementById('passwords').value;
+
+    fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Registration successful!');
+            // Redirect to the login page or another page
+            window.location.href = 'login.html';
+        } else {
+            alert('Failed to register.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+

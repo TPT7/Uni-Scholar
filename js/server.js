@@ -68,6 +68,19 @@ app.post('/login', async (req, res) => {
     }
 });
 
+//signup
+app.post('/register', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, password]);
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

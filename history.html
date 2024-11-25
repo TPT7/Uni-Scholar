@@ -6,6 +6,7 @@
     <title>Uni Scholar - History</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
+    <script src="js/server.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -14,10 +15,19 @@
         <div class="profile">
             <div class="profile-details">
                 <p>Uni Scholar</p>
-                <a href="login.html">Logout</a>
+                <a href="login.html" id="logout">Logout</a>
             </div>
             <img src="img/profile.png" alt="Profile Icon">
         </div>
+    </div>
+    <div class="content">
+        <div id="home" class="section">
+            <h2>Questions and Answers History</h2>
+            <p>You can access all the previously answered questions here.</p>
+        </div>
+        
+        <div id="questionsContainer"></div>
+       
     </div>
 </body>
 </html>

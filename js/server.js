@@ -81,6 +81,22 @@ app.post('/register', async (req, res) => {
     }
 });
 
+//history
+app.get('/questions', async (req, res) => {
+    try {
+        const questionsResult = await pool.query('SELECT * FROM questions ORDER BY created_at');
+        const commentsResult = await pool.query('SELECT * FROM comments ORDER BY created_at');
+        res.json({
+            questions: questionsResult.rows,
+            comments: commentsResult.rows
+        });
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+
